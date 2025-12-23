@@ -1,8 +1,14 @@
 import Background from "../components/Background";
 import Navbar from "../components/Navbar";
 import CurvedLoop from "../ui/CurvedLoop";
+import BlurText from "../ui/BlurText";
+import ProfileCard from "../ui/ProfileCard";
 
 function Home() {
+  const handleAnimationComplete = () => {
+    console.log("Animation completed!");
+  };
+
   return (
     <>
       <section className="hero-section relative min-h-screen">
@@ -25,9 +31,80 @@ function Home() {
           <Navbar />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center min-h-screen">
-          <div className="hero-section-head overflow-hidden md:rounded-3xl bg-[#2B1F39] px-6 sm:px-10 md:px-16 lg:px-24 xl:px-36 2xl:px-36 pt-6 md:pt-10 lg:pt-20 pb-8 md:pb-12 lg:pb-26">
-            
+        <div className="relative z-10 flex items-center justify-center pt-32 md:pt-32">
+          <div className="hero-section-head overflow-hidden md:rounded-3xl bg-[#2B1F39] px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12 flex items-center justify-center">
+            <div className="flex flex-row gap-10">
+              <div className="text-box">
+                <BlurText
+                  text="Hey, welcome to my space!"
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={handleAnimationComplete}
+                  className=""
+                  style={{
+                    color: "#DFEFE9",
+                    fontFamily: "Montserrat, sans-serif",
+                    fontSize: "50.52px",
+                    opacity: 1,
+                    lineHeight: "62px",
+                    fontWeight: 300,
+                  }}
+                />
+                <BlurText
+                  text="I'm Divyam"
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={handleAnimationComplete}
+                  className=""
+                  style={{
+                    color: "#DFEFE9",
+                    fontFamily: "Montserrat, sans-serif",
+                    fontOpticalSizing: "auto",
+                    fontWeight: "bold",
+                    fontStyle: "normal",
+                    fontSize: "clamp(2.25rem, 5vw + 1rem, 5.6rem)",
+                    lineHeight: "144px",
+                    textAlign: "left",
+                    opacity: 1,
+                  }}
+                />
+                <BlurText
+                  text="I write what I learn, and what I live."
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  onAnimationComplete={handleAnimationComplete}
+                  className=""
+                  style={{
+                    color: "#DFEFE9",
+                    opacity: 0.75,
+                    fontFamily: "Montserrat, sans-serif",
+                    fontOpticalSizing: "auto",
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                    fontSize: "clamp(1.125rem, 2.2vw + 0.4rem, 2.37rem)",
+                    lineHeight: "1.25",
+                    textAlign: "left",
+                  }}
+                />
+              </div>
+              <div className="img-box">
+                <ProfileCard
+                  name="Divyam Singh"
+                  title="Thinking in components"
+                  handle=""
+                  status=""
+                  contactText="Contact Me"
+                  avatarUrl="public/Divyam.jpeg"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  onContactClick={() => console.log("Contact clicked")}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

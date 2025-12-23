@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
+
 import ClickSpark from "./ui/ClickSpark";
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
       sparkCount={8}
       duration={400}
     >
-      {/* Your content here */}
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
