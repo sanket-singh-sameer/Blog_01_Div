@@ -160,7 +160,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="blog-section px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12 h-1000">
+      <section className="blog-section px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12">
         <h1 style={{ margin: 0 }}>
           <div
             style={{
