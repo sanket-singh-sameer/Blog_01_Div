@@ -28,6 +28,7 @@ const BlurText = ({
   onAnimationComplete,
   stepDuration = 0.35,
   style = {},
+  ...props
 }) => {
   const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
@@ -80,6 +81,7 @@ const BlurText = ({
 
   return (
     <p
+      {...props}
       ref={ref}
       className={`blur-text ${className} flex flex-wrap`}
       style={{ ...style, color: style.color || "inherit" }}

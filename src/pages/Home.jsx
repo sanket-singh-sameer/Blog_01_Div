@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Rellax from "rellax";
+import AOS from "aos";
 import Background from "../components/Background";
 import Navbar from "../components/Navbar";
 
@@ -11,6 +12,7 @@ import TextPressure from "../ui/TextPressure";
 import ProfileCard from "../ui/ProfileCard";
 import ScrollVelocity from "../ui/ScrollVelocity";
 import BlogGrid from "../components/BlogGrid";
+import Footer from "../components/Footer";
 
 function Home() {
   const handleAnimationComplete = () => {
@@ -27,6 +29,8 @@ function Home() {
       horizontal: false,
     });
 
+    // ensure AOS picks up elements after rellax positions them
+    if (AOS && typeof AOS.refresh === "function") AOS.refresh();
     return () => {
       rellax.destroy();
     };
@@ -51,7 +55,7 @@ function Home() {
         </div>
 
         <div className="relative z-20">
-          <Navbar />
+          <Navbar data-aos="fade-down" />
         </div>
 
         <div className="relative z-10 flex items-center justify-center pt-32 md:pt-32 max-w-7xl mx-auto">
@@ -73,6 +77,7 @@ function Home() {
                     lineHeight: "62px",
                     fontWeight: 300,
                   }}
+                  data-aos="fade-right"
                 />
                 <BlurText
                   text="I'm Divyam"
@@ -92,6 +97,7 @@ function Home() {
                     textAlign: "left",
                     opacity: 1,
                   }}
+                  data-aos="fade-right"
                 />
                 <BlurText
                   text="I write what I learn, and what I live."
@@ -111,6 +117,7 @@ function Home() {
                     lineHeight: "1.25",
                     textAlign: "left",
                   }}
+                  data-aos="fade-right"
                 />
                 <ShinyText
                   text="I use this space to share what I’m learning, building, and thinking about—sometimes technical, sometimes personal. You’ll find notes from my journey, lessons from building things, and thoughts that didn’t fit neatly anywhere else."
@@ -137,14 +144,18 @@ function Home() {
                       <h6 className="italic">Portfolio</h6>
                     </button>
                   </Link>
-                  <Link to="#">
+                  <a href="#blogs">
                     <button className="line-btn">
                       <h6 className="italic">To The Blogs</h6>
                     </button>
-                  </Link>
+                  </a>
                 </div>
               </div>
-              <div className="img-box rellax" data-rellax-speed="-3">
+              <div
+                className="img-box rellax"
+                data-rellax-speed="-3"
+                data-aos="flip-left"
+              >
                 <ProfileCard
                   name="Divyam Singh"
                   title="Thinking in components"
@@ -162,7 +173,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="blog-section px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12">
+      <section id="blogs" className="blog-section px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12">
         <h1 style={{ margin: 0 }}>
           <div
             style={{
@@ -219,6 +230,7 @@ function Home() {
           />
         </div>
       </section> */}
+      <Footer />
     </>
   );
 }

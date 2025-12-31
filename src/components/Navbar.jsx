@@ -1,7 +1,7 @@
 import CardNav from "../ui/CardNav";
 import logo from "../assets/logo.svg";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const items = [
     {
       label: "About",
@@ -35,6 +35,7 @@ const Navbar = () => {
 
   return (
     <CardNav
+      {...props}
       logo={logo}
       logoAlt="Company Logo"
       items={items}

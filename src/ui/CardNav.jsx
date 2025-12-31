@@ -13,6 +13,7 @@ const CardNav = ({
   menuColor,
   buttonBgColor,
   buttonTextColor,
+  ...props
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -138,6 +139,7 @@ const CardNav = ({
 
   return (
     <div
+      {...props}
       className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-200 z-99 top-[1.2em] md:top-[2em] ${className}`}
     >
       <nav
@@ -170,7 +172,7 @@ const CardNav = ({
             />
           </div>
 
-          <h4 class="text-2xl font-extrabold bg-gradient-to-r from-[#E0F0EA] via-gray-300 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-shine">
+          <h4 className="text-2xl font-extrabold bg-linear-to-r from-[#E0F0EA] via-gray-300 to-white bg-size-[200%_auto] bg-clip-text text-transparent animate-shine">
             BLG.
           </h4>
 

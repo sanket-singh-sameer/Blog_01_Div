@@ -29,7 +29,7 @@ export default function BlogGrid() {
 
   return (
     <div className="py-16">
-      <div className="max-w-screen mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-8">
         {currentCards.map((card) => (
           <BlogCard
             key={card.id}
