@@ -13,6 +13,7 @@ export default function BlogGrid() {
       description:
         "The highly anticipated world championship fight will take place at 10am and is the second major boxing blockbuster in the nation after 43 years.",
       link: `/article/${i + 1}`,
+      category: "Short Read",
     })),
   ];
 
@@ -37,6 +38,7 @@ export default function BlogGrid() {
             title={card.title}
             description={card.description}
             link={card.link}
+            category={card.category}
             data-aos="fade-up"
           />
         ))}

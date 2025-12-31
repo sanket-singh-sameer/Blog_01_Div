@@ -6,6 +6,7 @@ export default function BlogCard({
   title,
   description,
   link = "#",
+  category = "",
   ...props
 }) {
   return (
@@ -23,14 +24,22 @@ export default function BlogCard({
 
       <div className="absolute bottom-0 w-full translate-y-17.5 group-hover:translate-y-0 transition-transform duration-300">
         <div className="relative rounded-xl bg-[#2B1F39] text-[#DFEFE9]! m-4 p-4 shadow-xl text-left!">
-          <Link to={link}>
-            <button className="line-btn m-0! p-0! border-0! bg-transparent! group">
-              <h6 className="inline-flex items-center gap-2 italic hover:underline">
-                Read More
-                <ArrowRight className="w-4 h-4 transform transition-transform duration-500 origin-center group-hover:-rotate-45" />
-              </h6>
-            </button>
-          </Link>
+          <div className="flex items-center justify-between gap-4">
+            <Link to={link}>
+              <button className="line-btn m-0! p-0! border-0! bg-transparent! group">
+                <h6 className="inline-flex items-center gap-2 italic hover:underline">
+                  Read More
+                  <ArrowRight className="w-4 h-4 transform transition-transform duration-500 origin-center group-hover:-rotate-45" />
+                </h6>
+              </button>
+            </Link>
+
+            {category ? (
+              <span className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium opacity-60 bg-[#DFEFE9] text-[#2B1F39] shadow-sm">
+                {category}
+              </span>
+            ) : null}
+          </div>
 
           <hr />
 

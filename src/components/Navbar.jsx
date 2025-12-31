@@ -8,17 +8,18 @@ const Navbar = (props) => {
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
-        { label: "Company", ariaLabel: "About Company" },
-        { label: "Careers", ariaLabel: "About Careers" },
+        { label: "Professional Portfolio", ariaLabel: "About Portfolio" },
+        { label: "Me, Personally", ariaLabel: "About Me" },
       ],
     },
     {
-      label: "Projects",
+      label: "Writing",
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Featured", ariaLabel: "Featured Projects" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies" },
+        { label: "Essays", ariaLabel: "Essays" },
+        { label: "Short Read", ariaLabel: "Short Read" },
+        { label: "Thought Pieces", ariaLabel: "Thought Pieces" },
       ],
     },
     {
