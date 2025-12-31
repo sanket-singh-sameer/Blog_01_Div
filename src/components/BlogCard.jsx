@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-export default function ContentCard({ image, title, description, link = "#" }) {
+export default function BlogCard({
+  image,
+  title,
+  description,
+  link = "#",
+  ...props
+}) {
   return (
-    <div className="relative group overflow-hidden shadow-2xl cursor-pointer">
+    <div
+      {...props}
+      className={`relative group overflow-hidden shadow-2xl cursor-pointer ${
+        props.className || ""
+      }`}
+    >
       <div
         className="h-135 bg-cover bg-position-[20%_10%] transform transition duration-500 ease-out
                    group-hover:scale-105 filter group-hover:blur-sm group-hover:brightness-90"

@@ -9,6 +9,7 @@ import BlurText from "../ui/BlurText";
 import ShinyText from "../ui/ShinyText";
 import TextPressure from "../ui/TextPressure";
 import ProfileCard from "../ui/ProfileCard";
+import ScrollVelocity from "../ui/ScrollVelocity";
 import BlogGrid from "../components/BlogGrid";
 
 function Home() {
@@ -128,6 +129,7 @@ function Home() {
                     opacity: 1,
                     marginTop: "clamp(14px, 1.2vw, 16px)",
                   }}
+                  data-aos="fade-right"
                 />
                 <div className="cta-container flex gap-6">
                   <Link to="https://divyamsingh.me/">
@@ -204,10 +206,19 @@ function Home() {
             opacity: 1,
           }}
         />
-        <div className="blog-container absolute left-0 w-full">
+        <div className="blog-container relative w-full">
           <BlogGrid />
         </div>
       </section>
+      {/* <section className="quote-section h-100">
+        <div>
+          <ScrollVelocity
+            texts={["Read Carefully -", "What you read here has been lived first."]}
+            velocity={80}
+            className="text-[#2B1F39] opacity-85 "
+          />
+        </div>
+      </section> */}
     </>
   );
 }

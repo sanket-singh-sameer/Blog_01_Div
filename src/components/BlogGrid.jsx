@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogCard from "./BlogCard.jsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import AOS from "aos";
 
 export default function BlogGrid() {
   const cardsData = [
@@ -20,14 +21,15 @@ export default function BlogGrid() {
 
   const totalPages = Math.ceil(cardsData.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentCards = cardsData.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
+  const currentCards = cardsData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [currentPage]);
 
   return (
-    <div className="py-16 w-screen">
-      <div className="max-w-screen grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
+    <div className="py-16">
+      <div className="max-w-screen mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8">
         {currentCards.map((card) => (
           <BlogCard
             key={card.id}
@@ -35,16 +37,18 @@ export default function BlogGrid() {
             title={card.title}
             description={card.description}
             link={card.link}
+            data-aos="fade-up"
           />
         ))}
       </div>
 
       {totalPages > 1 && (
         <div className="mt-16 flex justify-center">
-          <div className="flex items-center gap-2 rounded-full px-4 py-2
+          <div
+            className="flex items-center gap-2 rounded-full px-4 py-2
                           bg-[#2B1F39]/70 backdrop-blur-md
-                          border border-white/10 shadow-xl">
-
+                          border border-white/10 shadow-xl"
+          >
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
@@ -77,9 +81,7 @@ export default function BlogGrid() {
             })}
 
             <button
-              onClick={() =>
-                setCurrentPage((p) => Math.min(p + 1, totalPages))
-              }
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
               className="w-9 h-9 flex items-center justify-center rounded-full
                          text-[#DFEFE9]/70 hover:text-[#DFEFE9]
