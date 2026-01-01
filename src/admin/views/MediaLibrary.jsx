@@ -98,13 +98,11 @@ function MediaLibrary() {
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    // Handle file upload
     const files = Array.from(e.dataTransfer.files);
     handleUpload(files);
   };
 
   const handleUpload = (files) => {
-    // Simulate upload
     files.forEach((file) => {
       const newMedia = {
         id: Date.now() + Math.random(),
@@ -140,7 +138,7 @@ function MediaLibrary() {
 
   return (
     <div className="media-library animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">Media Library</h1>
@@ -158,12 +156,11 @@ function MediaLibrary() {
           type="file"
           accept="image/*"
           multiple
-          className="hidden-input"
-          onChange={(e) => handleUpload(Array.from(e.target.files))}
+          style={{ display: "none" }}
+          onChange={handleFileUpload}
         />
       </div>
 
-      {/* Toolbar */}
       <div className="media-toolbar admin-card">
         <div className="search-box">
           <Search size={16} className="search-icon" />
@@ -191,7 +188,7 @@ function MediaLibrary() {
         </div>
       </div>
 
-      {/* Upload Zone */}
+      {}
       <div
         className={`upload-zone ${isDragging ? "dragging" : ""}`}
         onDragOver={handleDragOver}
@@ -206,7 +203,7 @@ function MediaLibrary() {
         <span className="upload-hint">Supports: JPG, PNG, GIF, WebP</span>
       </div>
 
-      {/* Media Grid/List */}
+      {}
       <div className={`media-container ${viewMode}`}>
         {filteredMedia.length > 0 ? (
           filteredMedia.map((item) => (
@@ -277,7 +274,7 @@ function MediaLibrary() {
         )}
       </div>
 
-      {/* Image Detail Modal */}
+      {}
       {selectedImage && (
         <div className="image-detail-panel">
           <div className="detail-header">

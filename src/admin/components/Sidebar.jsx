@@ -32,15 +32,9 @@ const menuItems = [
   },
   { id: "categories", label: "Categories", icon: FolderTree },
   { id: "tags", label: "Tags", icon: Tags },
-  { id: "media", label: "Media", icon: Image },
-  { id: "comments", label: "Comments", icon: MessageSquare },
-  { id: "analytics", label: "Analytics", icon: BarChart3 },
-  { id: "seo", label: "SEO", icon: SearchIcon },
 ];
 
 const bottomMenuItems = [
-  { id: "profile", label: "Profile", icon: User },
-  { id: "settings", label: "Settings", icon: Settings },
 ];
 
 function Sidebar({ collapsed, onToggle, currentView, onNavigate, onLogout }) {
@@ -71,13 +65,7 @@ function Sidebar({ collapsed, onToggle, currentView, onNavigate, onLogout }) {
         <div className="sidebar-logo">
           {!collapsed && <span className="logo-text">Divyam's BLG.</span>}
         </div>
-        <button
-          className="sidebar-toggle"
-          onClick={onToggle}
-          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          {collapsed ? <PanelLeft size={18} /> : <PanelLeftClose size={18} />}
-        </button>
+        {}
       </div>
 
       <nav className="sidebar-nav">

@@ -41,21 +41,15 @@ const layoutOptions = [
 function Settings() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-
-  // Appearance
   const [theme, setTheme] = useState("dark");
   const [accentColor, setAccentColor] = useState("#00B4D8");
   const [headingFont, setHeadingFont] = useState("Montserrat");
   const [bodyFont, setBodyFont] = useState("Roboto");
   const [blogLayout, setBlogLayout] = useState("grid");
   const [animationsEnabled, setAnimationsEnabled] = useState(true);
-
-  // Notifications
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [commentNotifications, setCommentNotifications] = useState(true);
   const [weeklyDigest, setWeeklyDigest] = useState(false);
-
-  // Privacy
   const [analyticsEnabled, setAnalyticsEnabled] = useState(true);
   const [showEmail, setShowEmail] = useState(false);
 
@@ -78,7 +72,7 @@ function Settings() {
 
   return (
     <div className="settings-page animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">Settings</h1>
@@ -110,7 +104,7 @@ function Settings() {
       </div>
 
       <div className="settings-grid">
-        {/* Theme */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon">
@@ -149,7 +143,7 @@ function Settings() {
           </div>
         </div>
 
-        {/* Accent Color */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon palette">
@@ -186,7 +180,7 @@ function Settings() {
           </div>
         </div>
 
-        {/* Typography */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon type">
@@ -237,7 +231,7 @@ function Settings() {
           </div>
         </div>
 
-        {/* Layout */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon layout">
@@ -287,7 +281,7 @@ function Settings() {
           </div>
         </div>
 
-        {/* Notifications */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon notifications">
@@ -355,7 +349,7 @@ function Settings() {
           </div>
         </div>
 
-        {/* Privacy */}
+        {}
         <div className="admin-card settings-section">
           <div className="section-header">
             <div className="section-icon privacy">

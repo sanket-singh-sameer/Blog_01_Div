@@ -76,7 +76,7 @@
   color: #00b4d8;
 }
 
-/* Upload Zone */
+
 .upload-zone {
   padding: 2.5rem;
   background: rgba(43, 31, 57, 0.3);
@@ -117,7 +117,7 @@
   color: rgba(223, 239, 233, 0.4);
 }
 
-/* Media Container */
+
 .media-container {
   display: grid;
   gap: 1rem;
@@ -131,7 +131,7 @@
   grid-template-columns: 1fr;
 }
 
-/* Media Item */
+
 .media-item {
   background: rgba(43, 31, 57, 0.4);
   border: 2px solid rgba(223, 239, 233, 0.08);
@@ -249,7 +249,7 @@
   white-space: nowrap;
 }
 
-/* Detail Panel */
+
 .image-detail-panel {
   position: fixed;
   top: 0;

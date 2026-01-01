@@ -21,8 +21,6 @@ function AdminPanel() {
   const [currentView, setCurrentView] = useState("dashboard");
   const [theme, setTheme] = useState("dark");
   const [editingPostId, setEditingPostId] = useState(null);
-
-  // Parse URL to set current view
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const view = params.get("view") || "dashboard";
@@ -40,7 +38,6 @@ function AdminPanel() {
   };
 
   const handleLogout = () => {
-    // Clear auth tokens
     localStorage.removeItem("authToken");
     navigate("/login");
   };

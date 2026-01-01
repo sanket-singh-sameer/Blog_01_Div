@@ -32,7 +32,7 @@
   color: #00b4d8;
 }
 
-/* Stats Overview */
+
 .analytics-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -125,7 +125,7 @@
   color: #ef4444;
 }
 
-/* Charts Row */
+
 .analytics-charts {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -159,7 +159,7 @@
   height: 280px;
 }
 
-/* Sources Card */
+
 .sources-card {
   padding: 1.5rem;
 }
@@ -216,7 +216,7 @@
   text-align: right;
 }
 
-/* Top Posts Section */
+
 .top-posts-section {
   padding: 0;
   overflow: hidden;

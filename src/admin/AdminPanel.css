@@ -1,4 +1,4 @@
-/* Admin Panel Base Styles */
+
 .admin-panel {
   display: flex;
   min-height: 100vh;
@@ -30,7 +30,7 @@
   margin: 0 auto;
 }
 
-/* Scrollbar Styles */
+
 .admin-panel ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -50,7 +50,7 @@
   background: rgba(0, 180, 216, 0.5);
 }
 
-/* Common Card Styles */
+
 .admin-card {
   background: rgba(43, 31, 57, 0.6);
   backdrop-filter: blur(20px);
@@ -70,7 +70,7 @@
   box-shadow: 0 8px 32px rgba(0, 180, 216, 0.1);
 }
 
-/* Stats Card */
+
 .stats-card {
   display: flex;
   flex-direction: column;
@@ -119,7 +119,7 @@
   color: #ef4444;
 }
 
-/* Button Styles */
+
 .admin-btn {
   display: inline-flex;
   align-items: center;
@@ -194,7 +194,7 @@
   border-radius: 8px;
 }
 
-/* Input Styles */
+
 .admin-input {
   width: 100%;
   padding: 0.875rem 1rem;
@@ -248,7 +248,7 @@
   box-shadow: none;
 }
 
-/* Textarea */
+
 .admin-textarea {
   width: 100%;
   min-height: 120px;
@@ -269,7 +269,7 @@
   box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
 }
 
-/* Select */
+
 .admin-select {
   width: 100%;
   padding: 0.875rem 2.5rem 0.875rem 1rem;
@@ -293,7 +293,7 @@
   box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
 }
 
-/* Labels */
+
 .admin-label {
   display: block;
   font-family: "Montserrat", sans-serif;
@@ -309,12 +309,12 @@
   color: rgba(43, 31, 57, 0.7);
 }
 
-/* Form Group */
+
 .form-group {
   margin-bottom: 1.5rem;
 }
 
-/* Section Headers */
+
 .section-header {
   display: flex;
   align-items: center;
@@ -337,7 +337,7 @@
   margin-top: 0.25rem;
 }
 
-/* Page Header */
+
 .page-header {
   margin-bottom: 2rem;
 }
@@ -354,7 +354,7 @@
   opacity: 0.6;
 }
 
-/* Badge */
+
 .admin-badge {
   display: inline-flex;
   align-items: center;
@@ -389,7 +389,7 @@
   color: rgba(223, 239, 233, 0.7);
 }
 
-/* Table */
+
 .admin-table {
   width: 100%;
   border-collapse: separate;
@@ -422,7 +422,7 @@
   background: rgba(0, 180, 216, 0.05);
 }
 
-/* Toggle Switch */
+
 .toggle-switch {
   position: relative;
   width: 48px;
@@ -464,7 +464,7 @@
   transform: translateX(22px);
 }
 
-/* Dropdown Menu */
+
 .dropdown {
   position: relative;
 }
@@ -517,7 +517,7 @@
   background: rgba(239, 68, 68, 0.1);
 }
 
-/* Tabs */
+
 .admin-tabs {
   display: flex;
   gap: 0.25rem;
@@ -550,7 +550,7 @@
   color: #00b4d8;
 }
 
-/* Chip / Tag */
+
 .admin-chip {
   display: inline-flex;
   align-items: center;
@@ -579,7 +579,7 @@
   background: rgba(0, 180, 216, 0.4);
 }
 
-/* Grid Layouts */
+
 .admin-grid {
   display: grid;
   gap: 1.5rem;
@@ -630,7 +630,7 @@
   }
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -676,7 +676,7 @@
   animation: scaleIn 0.2s ease forwards;
 }
 
-/* Skeleton Loading */
+
 .skeleton {
   background: linear-gradient(
     90deg,
@@ -698,7 +698,7 @@
   }
 }
 
-/* Toast Notifications */
+
 .toast-container {
   position: fixed;
   bottom: 2rem;
@@ -745,7 +745,7 @@
   border-left: 4px solid #f59e0b;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -796,7 +796,7 @@
   border-top: 1px solid rgba(223, 239, 233, 0.08);
 }
 
-/* Empty State */
+
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -827,7 +827,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Tooltip */
+
 .tooltip {
   position: relative;
 }

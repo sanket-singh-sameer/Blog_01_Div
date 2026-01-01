@@ -97,7 +97,7 @@ function Analytics() {
 
   return (
     <div className="analytics-page animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">Analytics</h1>
@@ -125,7 +125,7 @@ function Analytics() {
         </div>
       </div>
 
-      {/* Stats Overview */}
+      {}
       <div className="analytics-stats">
         <div className="admin-card stats-card">
           <div className="stats-icon views">
@@ -220,7 +220,7 @@ function Analytics() {
         </div>
       </div>
 
-      {/* Charts Row */}
+      {}
       <div className="analytics-charts">
         <div className="admin-card chart-card">
           <div className="card-header">
@@ -260,7 +260,7 @@ function Analytics() {
         </div>
       </div>
 
-      {/* Top Posts */}
+      {}
       <div className="admin-card top-posts-section">
         <div className="card-header">
           <h3 className="card-title">

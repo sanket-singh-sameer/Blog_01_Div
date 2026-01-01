@@ -143,7 +143,7 @@ function PostsList({ onNavigate }) {
 
   return (
     <div className="posts-list animate-fadeIn">
-      {/* Page Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">Posts</h1>
@@ -160,7 +160,7 @@ function PostsList({ onNavigate }) {
         </button>
       </div>
 
-      {/* Filters Bar */}
+      {}
       <div className="filters-bar admin-card">
         <div className="search-box">
           <Search size={18} className="search-icon" />
@@ -217,7 +217,7 @@ function PostsList({ onNavigate }) {
         </div>
       </div>
 
-      {/* Posts Table */}
+      {}
       <div className="admin-card posts-table-card">
         {filteredPosts.length > 0 ? (
           <table className="admin-table posts-table">
@@ -384,7 +384,7 @@ function PostsList({ onNavigate }) {
         )}
       </div>
 
-      {/* Bulk Actions */}
+      {}
       {selectedPosts.length > 0 && (
         <div className="bulk-actions-bar">
           <span className="selected-count">

@@ -31,8 +31,6 @@ import {
   Check,
 } from "lucide-react";
 import "./PostEditor.css";
-
-// Mock categories and tags
 const mockCategories = [
   { id: 1, name: "React" },
   { id: 2, name: "JavaScript" },
@@ -89,8 +87,6 @@ function PostEditor({ postId, onNavigate }) {
   const [lastSaved, setLastSaved] = useState(null);
   const [wordCount, setWordCount] = useState(0);
   const [readTime, setReadTime] = useState(0);
-
-  // Auto-generate slug from title
   useEffect(() => {
     if (!isEditing && post.title) {
       const slug = post.title
@@ -102,15 +98,11 @@ function PostEditor({ postId, onNavigate }) {
       setPost((prev) => ({ ...prev, slug }));
     }
   }, [post.title, isEditing]);
-
-  // Calculate word count and read time
   useEffect(() => {
     const words = post.content.trim().split(/\s+/).filter(Boolean).length;
     setWordCount(words);
     setReadTime(Math.ceil(words / 200)); // Average reading speed
   }, [post.content]);
-
-  // Auto-save draft
   useEffect(() => {
     const timer = setTimeout(() => {
       if (post.title || post.content) {
@@ -122,13 +114,11 @@ function PostEditor({ postId, onNavigate }) {
   }, [post]);
 
   const handleAutoSave = async () => {
-    // Simulate saving
     setLastSaved(new Date());
   };
 
   const handleSaveDraft = async () => {
     setIsSaving(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setPost((prev) => ({ ...prev, status: "draft" }));
     setLastSaved(new Date());
@@ -137,7 +127,6 @@ function PostEditor({ postId, onNavigate }) {
 
   const handlePublish = async () => {
     setIsSaving(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setPost((prev) => ({ ...prev, status: "published" }));
     setLastSaved(new Date());
@@ -146,7 +135,6 @@ function PostEditor({ postId, onNavigate }) {
 
   const handleSchedule = async (date) => {
     setIsSaving(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setPost((prev) => ({
       ...prev,
@@ -262,8 +250,6 @@ function PostEditor({ postId, onNavigate }) {
       post.content.substring(0, start) + newText + post.content.substring(end);
 
     setPost((prev) => ({ ...prev, content: newContent }));
-
-    // Restore cursor position
     setTimeout(() => {
       textarea.focus();
       textarea.setSelectionRange(
@@ -272,31 +258,21 @@ function PostEditor({ postId, onNavigate }) {
       );
     }, 0);
   };
-
-  // Simple markdown to HTML converter for preview
   const renderMarkdown = (text) => {
     let html = text
-      // Headers
       .replace(/^### (.*$)/gim, "<h3>$1</h3>")
       .replace(/^## (.*$)/gim, "<h2>$1</h2>")
       .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-      // Bold and italic
       .replace(/\*\*\*(.*?)\*\*\*/g, "<strong><em>$1</em></strong>")
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      // Code blocks
       .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
       .replace(/`(.*?)`/g, "<code>$1</code>")
-      // Links
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-      // Blockquotes
       .replace(/^> (.*$)/gim, "<blockquote>$1</blockquote>")
-      // Lists
       .replace(/^- (.*$)/gim, "<li>$1</li>")
       .replace(/^(\d+)\. (.*$)/gim, "<li>$2</li>")
-      // Horizontal rule
       .replace(/^---$/gim, "<hr />")
-      // Line breaks
       .replace(/\n/g, "<br />");
 
     return html;
@@ -304,7 +280,7 @@ function PostEditor({ postId, onNavigate }) {
 
   return (
     <div className="post-editor animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="editor-header">
         <div className="editor-header-left">
           <button className="back-btn" onClick={() => onNavigate("posts")}>
@@ -371,9 +347,9 @@ function PostEditor({ postId, onNavigate }) {
       </div>
 
       <div className="editor-layout">
-        {/* Main Editor */}
+        {}
         <div className="editor-main">
-          {/* Title Input */}
+          {}
           <input
             type="text"
             placeholder="Post title..."
@@ -384,7 +360,7 @@ function PostEditor({ postId, onNavigate }) {
             className="admin-input admin-input-title"
           />
 
-          {/* Slug */}
+          {}
           <div className="slug-input-wrapper">
             <span className="slug-prefix">/blog/</span>
             <input
@@ -398,7 +374,7 @@ function PostEditor({ postId, onNavigate }) {
             />
           </div>
 
-          {/* Toolbar */}
+          {}
           {editorMode === "write" && (
             <div className="editor-toolbar">
               <div className="toolbar-group">
@@ -492,7 +468,7 @@ function PostEditor({ postId, onNavigate }) {
             </div>
           )}
 
-          {/* Content Editor */}
+          {}
           <div className="content-area">
             {editorMode === "write" ? (
               <textarea
@@ -514,7 +490,7 @@ function PostEditor({ postId, onNavigate }) {
             )}
           </div>
 
-          {/* Word Count Bar */}
+          {}
           <div className="word-count-bar">
             <span>{wordCount} words</span>
             <span>·</span>
@@ -522,9 +498,9 @@ function PostEditor({ postId, onNavigate }) {
           </div>
         </div>
 
-        {/* Sidebar */}
+        {}
         <div className="editor-sidebar">
-          {/* Status */}
+          {}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">
               <FileText size={16} />
@@ -574,7 +550,7 @@ function PostEditor({ postId, onNavigate }) {
             </div>
           </div>
 
-          {/* Featured Image */}
+          {}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">
               <ImageIcon size={16} />
@@ -600,10 +576,16 @@ function PostEditor({ postId, onNavigate }) {
                   type="file"
                   accept="image/*"
                   onChange={(e) => {
-                    const file = e.target.files[0];
+                    const file = e.target.files?.[0];
                     if (file) {
-                      const url = URL.createObjectURL(file);
-                      setPost((prev) => ({ ...prev, featuredImage: url }));
+                      const reader = new FileReader();
+                      reader.onload = (ev) => {
+                        setPost((prev) => ({
+                          ...prev,
+                          featuredImage: ev.target.result,
+                        }));
+                      };
+                      reader.readAsDataURL(file);
                     }
                   }}
                 />
@@ -611,7 +593,6 @@ function PostEditor({ postId, onNavigate }) {
             )}
           </div>
 
-          {/* Category */}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">
               <Folder size={16} />
@@ -633,7 +614,7 @@ function PostEditor({ postId, onNavigate }) {
             </select>
           </div>
 
-          {/* Tags */}
+          {}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">
               <Tag size={16} />
@@ -679,7 +660,7 @@ function PostEditor({ postId, onNavigate }) {
             )}
           </div>
 
-          {/* Excerpt */}
+          {}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">Excerpt</h3>
             <textarea
@@ -693,7 +674,7 @@ function PostEditor({ postId, onNavigate }) {
             />
           </div>
 
-          {/* SEO */}
+          {}
           <div className="sidebar-section">
             <h3 className="sidebar-section-title">SEO Settings</h3>
             <div className="form-group">

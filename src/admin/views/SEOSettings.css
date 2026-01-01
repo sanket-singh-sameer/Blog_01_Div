@@ -100,7 +100,7 @@
   text-align: right;
 }
 
-/* Image Upload */
+
 .image-upload-area {
   width: 100%;
 }
@@ -156,7 +156,7 @@
   cursor: pointer;
 }
 
-/* Toggle Group */
+
 .toggle-group {
   display: flex;
   flex-direction: column;
@@ -235,7 +235,7 @@
   transform: translateX(22px);
 }
 
-/* Preview Section */
+
 .preview-section {
   grid-column: 1 / -1;
 }

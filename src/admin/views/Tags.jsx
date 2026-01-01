@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Edit3, Trash2, Tag, Search, X, Hash } from "lucide-react";
+import { Plus, Edit3, Trash2, Search, X, Hash } from "lucide-react";
 import "./Tags.css";
 
 const mockTags = [
@@ -33,158 +33,84 @@ function Tags() {
 
   const handleAddTag = () => {
     const trimmedTag = newTag.trim().toLowerCase().replace(/\s+/g, "-");
-    if (!trimmedTag) return;
-
-    // Check for duplicates
-    if (tags.some((t) => t.name === trimmedTag)) {
-      alert("Tag already exists!");
-      return;
-    }
-
+    if (!trimmedTag || tags.some((t) => t.name === trimmedTag)) return;
     setTags([...tags, { id: Date.now(), name: trimmedTag, count: 0 }]);
     setNewTag("");
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleAddTag();
-    }
-  };
-
-  const handleStartEdit = (tag) => {
-    setEditingTag(tag.id);
-    setEditValue(tag.name);
-  };
-
   const handleSaveEdit = (id) => {
     const trimmedValue = editValue.trim().toLowerCase().replace(/\s+/g, "-");
-    if (!trimmedValue) return;
-
-    // Check for duplicates (excluding current tag)
-    if (tags.some((t) => t.name === trimmedValue && t.id !== id)) {
-      alert("Tag already exists!");
-      return;
-    }
-
+    if (!trimmedValue || tags.some((t) => t.name === trimmedValue && t.id !== id)) return;
     setTags(tags.map((t) => (t.id === id ? { ...t, name: trimmedValue } : t)));
     setEditingTag(null);
   };
 
-  const handleDelete = (id) => {
-    setTags(tags.filter((t) => t.id !== id));
-  };
-
-  // Sort by count (most used first)
   const sortedTags = [...filteredTags].sort((a, b) => b.count - a.count);
 
   return (
-    <div className="tags-page animate-fadeIn">
-      {/* Header */}
+    <div className="tags-page">
       <div className="page-header">
-        <div className="page-header-content">
-          <h1 className="page-title">Tags</h1>
-          <p className="page-description">Manage your post tags</p>
+        <h1 className="page-title">Tags</h1>
+        <div className="header-stats">
+          <span>{tags.length} tags</span>
+          <span className="dot"></span>
+          <span>{tags.reduce((acc, t) => acc + t.count, 0)} uses</span>
         </div>
       </div>
 
-      {/* Add Tag & Search */}
-      <div className="tags-toolbar admin-card">
-        <div className="add-tag-form">
-          <div className="tag-input-wrapper">
-            <Hash size={16} className="tag-input-icon" />
-            <input
-              type="text"
-              className="tag-input"
-              placeholder="Add new tag..."
-              value={newTag}
-              onChange={(e) => setNewTag(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-          </div>
-          <button
-            className="admin-btn admin-btn-primary"
-            onClick={handleAddTag}
-          >
-            <Plus size={16} />
-            Add Tag
-          </button>
-        </div>
-        <div className="search-box">
-          <Search size={16} className="search-icon" />
+      <div className="tags-toolbar">
+        <div className="input-with-icon">
+          <Hash size={14} />
           <input
             type="text"
-            className="search-input"
-            placeholder="Search tags..."
+            placeholder="New tag..."
+            value={newTag}
+            onChange={(e) => setNewTag(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleAddTag()}
+          />
+        </div>
+        <button className="admin-btn admin-btn-primary" onClick={handleAddTag}>
+          <Plus size={14} /> Add
+        </button>
+        <div className="input-with-icon search">
+          <Search size={14} />
+          <input
+            type="text"
+            placeholder="Search..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="tags-stats">
-        <span className="stat-item">
-          <strong>{tags.length}</strong> total tags
-        </span>
-        <span className="stat-divider">•</span>
-        <span className="stat-item">
-          <strong>{tags.reduce((acc, t) => acc + t.count, 0)}</strong> total
-          uses
-        </span>
-      </div>
-
-      {/* Tags Grid */}
-      <div className="tags-grid admin-card">
+      <div className="tags-container">
         {sortedTags.length > 0 ? (
           sortedTags.map((tag) => (
-            <div key={tag.id} className="tag-item">
+            <div key={tag.id} className="tag-chip">
               {editingTag === tag.id ? (
-                <div className="tag-edit-form">
+                <>
                   <input
                     type="text"
-                    className="tag-edit-input"
+                    className="edit-input"
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
-                    onKeyDown={(e) =>
-                      e.key === "Enter" && handleSaveEdit(tag.id)
-                    }
+                    onKeyDown={(e) => e.key === "Enter" && handleSaveEdit(tag.id)}
                     autoFocus
                   />
-                  <button
-                    className="tag-action-btn save"
-                    onClick={() => handleSaveEdit(tag.id)}
-                  >
-                    ✓
-                  </button>
-                  <button
-                    className="tag-action-btn cancel"
-                    onClick={() => setEditingTag(null)}
-                  >
-                    ✕
-                  </button>
-                </div>
+                  <button className="chip-btn save" onClick={() => handleSaveEdit(tag.id)}></button>
+                  <button className="chip-btn" onClick={() => setEditingTag(null)}></button>
+                </>
               ) : (
                 <>
-                  <div className="tag-content">
-                    <Hash size={14} className="tag-hash" />
-                    <span className="tag-name">{tag.name}</span>
-                    <span className="tag-count">{tag.count}</span>
-                  </div>
-                  <div className="tag-actions">
-                    <button
-                      className="tag-action-btn"
-                      onClick={() => handleStartEdit(tag)}
-                      title="Edit"
-                    >
-                      <Edit3 size={14} />
+                  <Hash size={12} className="hash" />
+                  <span className="name">{tag.name}</span>
+                  <span className="count">{tag.count}</span>
+                  <div className="actions">
+                    <button className="chip-btn" onClick={() => { setEditingTag(tag.id); setEditValue(tag.name); }}>
+                      <Edit3 size={12} />
                     </button>
-                    <button
-                      className="tag-action-btn delete"
-                      onClick={() => handleDelete(tag.id)}
-                      title="Delete"
-                    >
-                      <Trash2 size={14} />
+                    <button className="chip-btn danger" onClick={() => setTags(tags.filter((t) => t.id !== tag.id))}>
+                      <Trash2 size={12} />
                     </button>
                   </div>
                 </>
@@ -192,15 +118,7 @@ function Tags() {
             </div>
           ))
         ) : (
-          <div className="empty-state">
-            <Tag size={48} className="empty-state-icon" />
-            <h3 className="empty-state-title">No tags found</h3>
-            <p className="empty-state-description">
-              {searchQuery
-                ? "Try a different search"
-                : "Start by adding your first tag"}
-            </p>
-          </div>
+          <div className="empty">No tags found</div>
         )}
       </div>
     </div>

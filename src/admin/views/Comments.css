@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 
-/* Stats */
+
 .comments-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -83,7 +83,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Toolbar */
+
 .comments-toolbar {
   margin-bottom: 1.5rem;
 }
@@ -117,7 +117,7 @@
   border-color: #00b4d8;
 }
 
-/* Comments List */
+
 .comments-list {
   display: flex;
   flex-direction: column;
@@ -324,7 +324,7 @@
   background: rgba(239, 68, 68, 0.1);
 }
 
-/* Reply Modal */
+
 .reply-modal .original-comment {
   padding: 1rem;
   background: rgba(43, 31, 57, 0.4);

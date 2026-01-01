@@ -116,7 +116,6 @@ function Comments() {
 
   const handleReply = () => {
     if (!replyText.trim() || !selectedComment) return;
-    // In real app, this would send the reply
     console.log("Replying to:", selectedComment.id, "with:", replyText);
     setReplyText("");
     setSelectedComment(null);
@@ -124,7 +123,7 @@ function Comments() {
 
   return (
     <div className="comments-page animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">Comments</h1>
@@ -143,7 +142,7 @@ function Comments() {
         </label>
       </div>
 
-      {/* Stats */}
+      {}
       <div className="comments-stats">
         <button
           className={`stat-card ${filter === "all" ? "active" : ""}`}
@@ -183,7 +182,7 @@ function Comments() {
         </button>
       </div>
 
-      {/* Search */}
+      {}
       <div className="comments-toolbar admin-card">
         <div className="search-box">
           <Search size={16} className="search-icon" />
@@ -197,7 +196,7 @@ function Comments() {
         </div>
       </div>
 
-      {/* Comments List */}
+      {}
       <div className="comments-list">
         {filteredComments.length > 0 ? (
           filteredComments.map((comment) => (
@@ -312,7 +311,7 @@ function Comments() {
         )}
       </div>
 
-      {/* Reply Modal */}
+      {}
       {selectedComment && (
         <div className="modal-overlay" onClick={() => setSelectedComment(null)}>
           <div

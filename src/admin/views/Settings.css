@@ -102,7 +102,7 @@
   margin: 0;
 }
 
-/* Theme Options */
+
 .theme-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -139,7 +139,7 @@
   font-weight: 600;
 }
 
-/* Color Options */
+
 .color-options {
   display: flex;
   flex-wrap: wrap;
@@ -193,7 +193,7 @@
   border-radius: 12px;
 }
 
-/* Typography */
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -250,7 +250,7 @@
   line-height: 1.6;
 }
 
-/* Layout Options */
+
 .layout-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -291,7 +291,7 @@
   font-weight: 600;
 }
 
-/* Toggle Rows */
+
 .toggle-group {
   display: flex;
   flex-direction: column;

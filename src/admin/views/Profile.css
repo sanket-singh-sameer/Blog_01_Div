@@ -8,7 +8,7 @@
   gap: 1.5rem;
 }
 
-/* Profile Card */
+
 .profile-card {
   grid-column: 1 / -1;
 }
@@ -122,7 +122,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Bio & Now Sections */
+
 .bio-section,
 .now-section {
   display: flex;
@@ -179,7 +179,7 @@
   text-decoration: underline;
 }
 
-/* Social Links Section */
+
 .social-section {
   grid-column: 1 / -1;
   display: flex;

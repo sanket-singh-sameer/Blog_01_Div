@@ -15,8 +15,6 @@ import "./SEOSettings.css";
 function SEOSettings() {
   const [isSaving, setIsSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-
-  // Global SEO Settings
   const [siteTitle, setSiteTitle] = useState(
     "Divyam's Blog | Personal Tech & Life Notes"
   );
@@ -25,14 +23,10 @@ function SEOSettings() {
   );
   const [siteUrl, setSiteUrl] = useState("https://blog.divyamsingh.me");
   const [ogImage, setOgImage] = useState("");
-
-  // Technical SEO
   const [sitemapEnabled, setSitemapEnabled] = useState(true);
   const [robotsTxtEnabled, setRobotsTxtEnabled] = useState(true);
   const [canonicalUrls, setCanonicalUrls] = useState(true);
   const [structuredData, setStructuredData] = useState(true);
-
-  // Social
   const [twitterHandle, setTwitterHandle] = useState("@divyamsingh");
   const [facebookAppId, setFacebookAppId] = useState("");
 
@@ -46,7 +40,7 @@ function SEOSettings() {
 
   return (
     <div className="seo-settings-page animate-fadeIn">
-      {/* Header */}
+      {}
       <div className="page-header">
         <div className="page-header-content">
           <h1 className="page-title">SEO Settings</h1>
@@ -74,7 +68,7 @@ function SEOSettings() {
       </div>
 
       <div className="seo-grid">
-        {/* Global Meta */}
+        {}
         <div className="admin-card seo-section">
           <div className="section-header">
             <div className="section-icon">
@@ -124,7 +118,7 @@ function SEOSettings() {
           </div>
         </div>
 
-        {/* Open Graph */}
+        {}
         <div className="admin-card seo-section">
           <div className="section-header">
             <div className="section-icon og">
@@ -181,7 +175,7 @@ function SEOSettings() {
           </div>
         </div>
 
-        {/* Technical SEO */}
+        {}
         <div className="admin-card seo-section">
           <div className="section-header">
             <div className="section-icon tech">
@@ -266,7 +260,7 @@ function SEOSettings() {
           </div>
         </div>
 
-        {/* Preview */}
+        {}
         <div className="admin-card seo-section preview-section">
           <div className="section-header">
             <div className="section-icon preview">

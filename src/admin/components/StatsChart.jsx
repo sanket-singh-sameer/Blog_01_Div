@@ -1,6 +1,4 @@
 import { useEffect, useRef } from "react";
-
-// Simple SVG-based chart component
 function StatsChart() {
   const data = [
     { label: "Mon", value: 2400 },
@@ -44,7 +42,7 @@ function StatsChart() {
         preserveAspectRatio="none"
         className="chart-svg"
       >
-        {/* Gradient */}
+        {}
         <defs>
           <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#00B4D8" stopOpacity="0.3" />
@@ -52,7 +50,7 @@ function StatsChart() {
           </linearGradient>
         </defs>
 
-        {/* Grid lines */}
+        {}
         {[0, 25, 50, 75, 100].map((percent) => (
           <line
             key={percent}
@@ -65,10 +63,10 @@ function StatsChart() {
           />
         ))}
 
-        {/* Area fill */}
+        {}
         <polygon points={areaPoints} fill="url(#chartGradient)" />
 
-        {/* Line */}
+        {}
         <polyline
           points={points}
           fill="none"
@@ -78,7 +76,7 @@ function StatsChart() {
           strokeLinejoin="round"
         />
 
-        {/* Data points */}
+        {}
         {data.map((d, i) => {
           const x = padding + (i / (data.length - 1)) * (width - padding * 2);
           const y =
@@ -98,7 +96,7 @@ function StatsChart() {
         })}
       </svg>
 
-      {/* X-axis labels */}
+      {}
       <div className="chart-labels">
         {data.map((d, i) => (
           <span key={i} className="chart-label">
@@ -107,7 +105,7 @@ function StatsChart() {
         ))}
       </div>
 
-      {/* Legend */}
+      {}
       <div className="chart-legend">
         <div className="legend-item">
           <span className="legend-dot"></span>
