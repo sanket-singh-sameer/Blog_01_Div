@@ -29,7 +29,6 @@ function Home() {
       horizontal: false,
     });
 
-    // ensure AOS picks up elements after rellax positions them
     if (AOS && typeof AOS.refresh === "function") AOS.refresh();
     return () => {
       rellax.destroy();

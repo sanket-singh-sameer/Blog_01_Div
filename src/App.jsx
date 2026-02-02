@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import BlogPost from "./pages/BlogPost";
+import AllBlogs from "./pages/AllBlogs";
 import Login from "./pages/Login";
 import AdminPanel from "./admin/AdminPanel";
 import ProtectedRoute from "./ui/ProtectedRoute";
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/blogs" element={<AllBlogs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminPanel />} />
         </Routes>

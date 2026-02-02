@@ -6,7 +6,6 @@ export default function BlogCard({
   title,
   description,
   link = "#",
-  category = "",
   ...props
 }) {
   return (
@@ -17,13 +16,13 @@ export default function BlogCard({
       }`}
     >
       <div
-        className="h-135 bg-cover bg-position-[20%_10%] transform transition duration-500 ease-out
+        className="h-135 rounded-4xl bg-cover bg-position-[20%_10%] transform transition duration-500 ease-out overflow-y-hidden
                    group-hover:scale-105 filter group-hover:blur-sm group-hover:brightness-90"
         style={{ backgroundImage: `url(${image})` }}
       />
 
       <div className="absolute bottom-0 w-full translate-y-17.5 group-hover:translate-y-0 transition-transform duration-300">
-        <div className="relative rounded-xl bg-[#2B1F39] text-[#DFEFE9]! m-4 p-4 shadow-xl text-left!">
+        <div className="relative bg-[#2B1F39] text-[#DFEFE9]! m-4 p-4 shadow-xl text-left!">
           <div className="flex items-center justify-between gap-4">
             <Link to={link}>
               <button className="line-btn m-0! p-0! border-0! bg-transparent! group">
@@ -34,11 +33,7 @@ export default function BlogCard({
               </button>
             </Link>
 
-            {category ? (
-              <span className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium opacity-60 bg-[#DFEFE9] text-[#2B1F39] shadow-sm">
-                {category}
-              </span>
-            ) : null}
+            
           </div>
 
           <hr />
