@@ -195,9 +195,7 @@ export default function Footer() {
           <div className="border-t border-[#E0F0EA]/6 pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Left — credits */}
             <div className="flex items-center gap-3">
-              <div
-                style={{ background: "#00B4D8" }}
-              />
+              <div style={{ background: "#00B4D8" }} />
               <p
                 style={{
                   fontFamily: "Roboto, sans-serif",
