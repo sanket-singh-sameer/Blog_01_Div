@@ -25,7 +25,7 @@ export default function BlogCard({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     observer.observe(el);
     return () => observer.disconnect();

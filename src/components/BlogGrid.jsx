@@ -92,6 +92,7 @@ export default function BlogGrid() {
                      transition-all duration-300 
                      shadow-[0_0_30px_rgba(223,239,233,0.4)]
                      hover:shadow-[0_0_50px_rgba(223,239,233,0.6)]
+                     border border-[#2B1F39]/15 hover:border-[#2B1F39]/25
                      z-10"
         >
           More From My Desk
