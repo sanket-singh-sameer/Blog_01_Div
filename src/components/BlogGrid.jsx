@@ -4,33 +4,78 @@ import { ArrowRight } from "lucide-react";
 
 export default function BlogGrid() {
   const cardsData = [
-    ...Array.from({ length: 3 }, (_, i) => ({
+    ...Array.from({ length: 5 }, (_, i) => ({
       id: i + 1,
-      image:
+      image: [
         "https://images.unsplash.com/photo-1496979551903-46e46589a88b?auto=format&fit=crop&w=634&q=80",
-      title: `Boxing icon has the will for a couple more fights ${i + 1}`,
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=634&q=80",
+      ][i],
+      title: [
+        "Boxing icon has the will for a couple more fights",
+        "The Art of Writing Clean, Maintainable Code",
+        "Lessons from Shipping My First Open Source Project",
+        "Why I Switched to a Minimalist Dev Setup",
+        "Exploring the Edges of Frontend Performance",
+      ][i],
       description:
         "The highly anticipated world championship fight will take place at 10am and is the second major boxing blockbuster in the nation after 43 years.",
       link: `/article/${i + 1}`,
     })),
   ];
 
-  const displayedCards = cardsData.slice(0, 3);
+  const displayedCards = cardsData.slice(0, 5);
 
   return (
     <div className="py-16">
-      <div className="max-w-screen mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4 sm:px-3 lg:px-4">
-        {displayedCards.map((card) => (
-          <BlogCard
-            key={card.id}
-            image={card.image}
-            title={card.title}
-            description={card.description}
-            link={card.link}
-            category={card.category}
-            data-aos="fade-up"
-          />
-        ))}
+      <div className="max-w-screen mx-auto px-4 sm:px-3 lg:px-4 flex flex-col gap-4">
+        {/* row 1 — 3 equal cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {displayedCards.slice(0, 3).map((card, i) => (
+            <BlogCard
+              key={card.id}
+              image={card.image}
+              title={card.title}
+              description={card.description}
+              link={card.link}
+              category={card.category}
+              compact
+              data-aos="fade-up"
+              data-aos-delay={i * 80}
+            />
+          ))}
+        </div>
+        {/* row 2 — asymmetric 5/7 split */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <div className="md:col-span-5">
+            <BlogCard
+              key={displayedCards[3].id}
+              image={displayedCards[3].image}
+              title={displayedCards[3].title}
+              description={displayedCards[3].description}
+              link={displayedCards[3].link}
+              category={displayedCards[3].category}
+              compact
+              data-aos="fade-right"
+              data-aos-delay="100"
+            />
+          </div>
+          <div className="md:col-span-7">
+            <BlogCard
+              key={displayedCards[4].id}
+              image={displayedCards[4].image}
+              title={displayedCards[4].title}
+              description={displayedCards[4].description}
+              link={displayedCards[4].link}
+              category={displayedCards[4].category}
+              compact
+              data-aos="fade-left"
+              data-aos-delay="180"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="relative -mt-8 flex justify-center">

@@ -62,7 +62,7 @@ function Home() {
           <div className="hero-section-head overflow-hidden md:rounded-3xl bg-[#2B1F39] px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12 flex items-center justify-center">
             <div className="flex flex-row gap-10">
               <div className="text-box">
-                <BlurText
+                <ShinyText
                   text="Hey, welcome to my space!"
                   delay={150}
                   animateBy="words"
@@ -79,7 +79,7 @@ function Home() {
                   }}
                   data-aos="fade-right"
                 />
-                <BlurText
+                <ShinyText
                   text="I'm Divyam"
                   delay={150}
                   animateBy="words"
@@ -99,7 +99,7 @@ function Home() {
                   }}
                   data-aos="fade-right"
                 />
-                <BlurText
+                <ShinyText
                   text="I write what I learn, and what I live."
                   delay={150}
                   animateBy="words"
@@ -223,7 +223,6 @@ function Home() {
         <div className="blog-container relative w-full">
           <BlogGrid />
         </div>
-        <hr />
       </section>
       {/* <section className="quote-section h-100">
         <div>
@@ -234,7 +233,7 @@ function Home() {
           />
         </div>
       </section> */}
-      <section
+      {/* <section
         id="story"
         className="story-section px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-24 pt-4 md:pt-6 lg:pt-10 pb-6 md:pb-8 lg:pb-12"
       >
@@ -261,7 +260,7 @@ function Home() {
           <StoryGrid />
         </div>
         <hr />
-      </section>
+      </section> */}
       <Footer />
     </>
   );
