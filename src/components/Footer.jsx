@@ -1,4 +1,31 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+
+/* ─── scroll-reveal hook ─── */
+function useScrollReveal(options = {}) {
+  const { threshold = 0.15, rootMargin = "0px 0px -40px 0px" } = options;
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold, rootMargin }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold, rootMargin]);
+
+  return [ref, isVisible];
+}
 
 /* ─── social data ─── */
 const socials = [
@@ -75,6 +102,20 @@ export default function Footer() {
   const footerRef = useRef(null);
   const currentYear = new Date().getFullYear();
 
+  /* scroll-reveal refs for each section */
+  const [headlineRef, headlineVisible] = useScrollReveal({ threshold: 0.2 });
+  const [navRef, navVisible] = useScrollReveal({ threshold: 0.2 });
+  const [socialsRef, socialsVisible] = useScrollReveal({ threshold: 0.15 });
+  const [bottomRef, bottomVisible] = useScrollReveal({ threshold: 0.3 });
+  const [watermarkRef, watermarkVisible] = useScrollReveal({ threshold: 0.1 });
+
+  /* shared transition style builder */
+  const reveal = (visible, delay = 0, translateY = 32) => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? "translateY(0)" : `translateY(${translateY}px)`,
+    transition: `opacity 0.8s cubic-bezier(.16,1,.3,1) ${delay}s, transform 0.8s cubic-bezier(.16,1,.3,1) ${delay}s`,
+  });
+
   return (
     <footer
       ref={footerRef}
@@ -85,7 +126,15 @@ export default function Footer() {
       <GlowBlob containerRef={footerRef} />
 
       {/* ─── Giant watermark text ─── */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-0 select-none overflow-hidden">
+      <div
+        ref={watermarkRef}
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-0 select-none overflow-hidden"
+        style={{
+          opacity: watermarkVisible ? 1 : 0,
+          transform: watermarkVisible ? "scale(1)" : "scale(0.92)",
+          transition: "opacity 1.2s cubic-bezier(.16,1,.3,1) 0.2s, transform 1.2s cubic-bezier(.16,1,.3,1) 0.2s",
+        }}
+      >
         <p
           className="whitespace-nowrap text-center leading-none tracking-[-0.04em]"
           style={{
@@ -109,7 +158,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20 mb-20 md:mb-28">
             {/* Left — statement */}
-            <div className="lg:max-w-[55%]">
+            <div ref={headlineRef} className="lg:max-w-[55%]" style={reveal(headlineVisible, 0, 40)}>
               <h2
                 style={{
                   fontFamily: "Montserrat, sans-serif",
@@ -132,7 +181,7 @@ export default function Footer() {
             </div>
 
             {/* Right — nav links */}
-            <div className="flex flex-col items-start lg:items-end gap-3">
+            <div ref={navRef} className="flex flex-col items-start lg:items-end gap-3" style={reveal(navVisible, 0.15, 30)}>
               <a
                 href="/"
                 className="line-btn"
@@ -164,7 +213,7 @@ export default function Footer() {
           </div>
 
           {/* ─── Socials ─── */}
-          <div className="mb-16 md:mb-24">
+          <div ref={socialsRef} className="mb-16 md:mb-24" style={reveal(socialsVisible, 0.1, 24)}>
             <div className="flex flex-wrap items-center gap-3">
               {socials.map((s) => (
                 <a
@@ -267,7 +316,11 @@ export default function Footer() {
           </div>
 
           {/* ─── Bottom strip ─── */}
-          <div className="border-t border-[#E0F0EA]/6 pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div
+            ref={bottomRef}
+            className="border-t border-[#E0F0EA]/6 pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4"
+            style={reveal(bottomVisible, 0.1, 16)}
+          >
             {/* Left — credits */}
             <div className="flex items-center gap-3">
               <div style={{ background: "#00B4D8" }} />

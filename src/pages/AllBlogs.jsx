@@ -347,6 +347,10 @@ export default function AllBlogs() {
   const featured = allPosts[0];
   const rest = allPosts.slice(1);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-[#E0F0EA]">
       <GlowOrbs />

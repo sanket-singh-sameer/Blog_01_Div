@@ -14,6 +14,7 @@ import ScrollVelocity from "../ui/ScrollVelocity";
 import BlogGrid from "../components/BlogGrid";
 import Footer from "../components/Footer";
 import StoryGrid from "../components/StoryGrid";
+import Threads from "../ui/Thread";
 
 /* ── smooth entrance orchestration ── */
 const ease = [0.22, 1, 0.36, 1]; // easeOutQuint
@@ -288,27 +289,47 @@ function Home() {
             borderColor: "rgba(43,31,57,0.15)",
           }}
         />
-        <BlurText
-          text="Things I’m Figuring Out"
-          delay={150}
-          animateBy="words"
-          direction="top"
-          onAnimationComplete={handleAnimationComplete}
-          className=""
-          style={{
-            color: "#2B1F39",
-            fontFamily: "'Bricolage Grotesque', sans-serif",
-            fontOpticalSizing: "auto",
-            fontWeight: 700,
-            fontStyle: "italic",
-            fontSize: "clamp(2.5rem, 5vw + 0.8rem, 5.2rem)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.03em",
-            textAlign: "left",
-            opacity: 1,
-            marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
-          }}
-        />
+        <div style={{ position: "relative" }}>
+          <BlurText
+            text="Things I’m Figuring Out"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
+            className=""
+            style={{
+              color: "#2B1F39",
+              fontFamily: "'Bricolage Grotesque', sans-serif",
+              fontOpticalSizing: "auto",
+              fontWeight: 700,
+              fontStyle: "italic",
+              fontSize: "clamp(2.5rem, 5vw + 0.8rem, 5.2rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
+              textAlign: "left",
+              opacity: 1,
+              marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
+              position: "relative",
+              zIndex: 2,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: "-40% -10%",
+              zIndex: 1,
+              opacity: 0.16,
+              pointerEvents: "auto",
+            }}
+          >
+            <Threads
+              color={[0.094, 0.067, 0.122]}
+              amplitude={4}
+              distance={0.7}
+              enableMouseInteraction
+            />
+          </div>
+        </div>
         <div className="blog-container relative w-full">
           <BlogGrid />
         </div>
